@@ -19,6 +19,7 @@ app.use(express.static('JavaScriptSPA'))
 
 // Set up a route for index.html.
 app.get('*', (req, res) => {
+    console.log(`~~~~~~~~~~~~~~~`);
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 

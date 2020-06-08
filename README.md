@@ -121,7 +121,7 @@ Now in the sample code, you can replace the single page application's demo envir
 1. Open the `authConfig.js` file.
 2. Find the assignment for `clientId` and replace the value with the Application ID for the single page application you registered earlier, for example the Application ID found in `My Test SPA` application in the Azure portal.
 3. Open the `policies.js` file.
-4. Find the entries for `names` and `authorities` and replacing, as appropriate, with the names of the policies you created in Step 2, and `fabrikamb2c.onmicrosoft.com` by the name of your Azure AD B2C tenant, for example `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`
+4. Find the entries for `names` and `authorities` and replacing, as appropriate, with the names of the policies you created in Step 2, and `pwcacsftest.onmicrosoft.com` by the name of your Azure AD B2C tenant, for example `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`
 5. Open the `apiConfig.js` file.
 6. Find the assignment for the scopes `b2cScopes` replacing the URL by the scope URL you created for the Web API, e.g. `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`
 7. Find the assignment for API URL `webApi` replacing the current URL by the URL where you deployed your Web API in Step 4, e.g. `webApi: http://localhost:5000/hello`
@@ -146,7 +146,7 @@ const loginRequest = {
 };
 
 const tokenRequest = {
-  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+  scopes: apiConfig.b2cScopes // i.e. ["https://pwcacsftest.onmicrosoft.com/helloapi/demo.read"]
 };
 ```
 
@@ -158,10 +158,10 @@ const b2cPolicies = {
     },
     authorities: {
         signUpSignIn: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
+            authority: "https://pwcacsftest.b2clogin.com/pwcacsftest.onmicrosoft.com/b2c_1_susi",
         },
         forgotPassword: {
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+            authority: "https://pwcacsftest.b2clogin.com/pwcacsftest.onmicrosoft.com/b2c_1_reset",
         },
     },
 }
@@ -169,8 +169,8 @@ const b2cPolicies = {
 
 ```javascript
 const apiConfig = {
-  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
-  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+  b2cScopes: ["https://pwcacsftest.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://pwcacsftest.azurewebsites.net/hello"
 };
 ```
 

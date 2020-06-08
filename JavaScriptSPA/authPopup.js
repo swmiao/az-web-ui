@@ -44,7 +44,7 @@ function getTokenPopup(request) {
       // fallback to interaction when silent call fails
       return myMSALObj.acquireTokenPopup(request)
         .then(tokenResponse => {
-          console.log("access_token acquired at: " + new Date().toString());
+          console.log("access_token acquired at: " + tokenResponse);
           return tokenResponse;
         }).catch(error => {
           console.log(error);
@@ -56,7 +56,7 @@ function getTokenPopup(request) {
 function passTokenToApi() {
   getTokenPopup(tokenRequest)
     .then(tokenResponse => {
-        console.log("access_token acquired at: " + new Date().toString());
+        console.log(`access_token : ${tokenResponse}`);
         try {
           logMessage("Request made to Web API:");
           callApiWithAccessToken(apiConfig.webApi, tokenResponse.accessToken);
